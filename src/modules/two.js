@@ -1,5 +1,5 @@
-const twoJs = () => {
-  console.log("two");
+const two = () => {
+ 
 };
 
-export default twoJs;
+export default two;
