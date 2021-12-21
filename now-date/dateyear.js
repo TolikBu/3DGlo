@@ -52,7 +52,7 @@ const time = function () {
   timeNow.textContent = "Текущее время: " + time;
   yearDays.textContent = "До нового года осталось " + days + " дней";
   dayNow.textContent = "Сегодня: " + day[0].toUpperCase() + day.slice(1, day.length);
-  hello.textContent = `${hi("Доброго утра", "Доброго дня", "Добрый вечер", " Доброй ночи")} `;
+  hello.textContent = `${hi("Доброе утро", "Добрый день", "Добрый вечер", "Доброй ночи")} `;
 
 };
 setInterval(time, 1000);
