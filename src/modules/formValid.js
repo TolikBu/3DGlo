@@ -18,10 +18,12 @@ const formValid = () => {
     }
     for (let i of formEmail) {
       i.addEventListener("input", (e) => {
-        e.target.value = e.target.value.replace(/[\_\.\!\~\*\'\-\w]+@([\w]+\.)+[\w]+/gi, "");
+        e.target.value = e.target.value.replace(/[^\w\@\_\.\!\~\*\'\-]/gi, "");
       });
     }
     
   });
+
+  
 };
 export default formValid;
