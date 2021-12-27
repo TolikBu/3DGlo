@@ -7,7 +7,7 @@ const menu = () => {
 
   let array = [...menuItems, btnScroll];
 
-  const handleMenu = () => { 
+  const handleMenu = () => {
     menu.classList.toggle("active-menu");
   };
   menuBtn.addEventListener("click", handleMenu);
@@ -15,15 +15,23 @@ const menu = () => {
   menu.addEventListener("click", (e) => {
     if (e.target.classList.contains("close-btn") || e.target.matches("ul>li>a")) {
       handleMenu();
-      const ID = e.target.getAttribute("href").substr(1);
-      document.getElementById(ID).scrollIntoView({
-        behavior: "smooth"
-      });
-    } 
+    }
   });
 
-  btnScroll.addEventListener("click", (event) => {
-    event.preventDefault();
+  menuItems.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const ID = e.target.getAttribute("href").substr(1);
+      document.getElementById(ID).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+
+  btnScroll.addEventListener("click", (e) => {
+    e.preventDefault();
     service.scrollIntoView({
       behavior: "smooth",
       block: "start",
