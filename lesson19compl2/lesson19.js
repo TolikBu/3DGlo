@@ -29,5 +29,6 @@ button.addEventListener("click", () => {
 reset.addEventListener("click", () => {
   image.style.left = "0px";
   count = 0;
+  cancelAnimationFrame(iInterval);
 });
 
