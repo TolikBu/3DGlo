@@ -3,6 +3,7 @@ import menu from "./modules/menu";
 import modal from "./modules/modal";
 import calc from "./modules/calc";
 import formValid from "./modules/formValid";
+import tabs from "./modules/tabs";
 
 
 timer("31 december 2021");
@@ -10,3 +11,4 @@ menu();
 modal();
 calc();
 formValid();
+tabs();

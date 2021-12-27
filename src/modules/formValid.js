@@ -5,7 +5,6 @@ const formValid = () => {
   const formEmail = document.querySelectorAll(".form-email");
 
   input.forEach((e) => {
-    console.log(e);
     for (let i of formName) {
       i.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/[^а-яА-Я]/gi, "");
