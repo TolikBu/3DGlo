@@ -1,7 +1,7 @@
 const slider = () => {
   const sliderBlock = document.querySelector('.portfolio-content');
   const slides = document.querySelectorAll('.portfolio-item');
-  // const dots = document.querySelectorAll(".dot");
+
   const dotBlock = document.querySelector('.portfolio-dots');
   const timeInterval = 2000;
   
