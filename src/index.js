@@ -7,10 +7,10 @@ import tabs from "./modules/tabs";
 import slider from "./modules/slider";
 
 
-timer("31 december 2021");
+timer('1 january 2022');
 menu();
 modal();
-calc();
+calc(100);
 formValid();
 tabs();
 slider();
