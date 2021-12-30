@@ -1,30 +1,43 @@
 const slider = () => {
   const sliderBlock = document.querySelector(".portfolio-content");
   const slides = document.querySelectorAll(".portfolio-item");
-  const dots = document.querySelectorAll(".dot");
+  // const dots = document.querySelectorAll(".dot");
+  const dotBlock = document.querySelector(".portfolio-dots");
+
+  const dots = slides[0].cloneNode();
+  const newDot = () => {
+    dots.className = "dot";
+    dotBlock.append(dots);
+  };
 
   const timeInterval = 2000;
-  
+
   let carrentSlide = 0;
   let interval;
 
 
   const prevSlides = (elems, index, strCarrent) => {
     elems[index].classList.remove(strCarrent);
+    
   };
 
   const nextSlides = (elems, index, strCarrent) => {
     elems[index].classList.add(strCarrent);
+
   };
 
   const autoSlide = () => {
+    newDot();
     prevSlides(slides, carrentSlide, "portfolio-item-active");
     prevSlides(dots, carrentSlide, "dot-active");
     carrentSlide++;
 
+
     if (carrentSlide >= slides.length) {
       carrentSlide = 0;
+
     }
+
 
     nextSlides(slides, carrentSlide, "portfolio-item-active");
     nextSlides(dots, carrentSlide, "dot-active");
