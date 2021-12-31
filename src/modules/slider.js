@@ -25,9 +25,9 @@ const slider = () => {
   const nextSlides = (elems, index, strCarrent) => {
     elems[index].classList.add(strCarrent);
   };
-
   const autoSlide = () => {
     dots = document.querySelectorAll('.dot');
+    // dots[0].className = 'dot dot-active';
     
     prevSlides(slides, carrentSlide, 'portfolio-item-active');
     prevSlides(dots, carrentSlide, 'dot-active');

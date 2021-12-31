@@ -1,3 +1,5 @@
+import { animate } from './helpers';
+
 const modal = () => {
   const modal = document.querySelector(".popup");
   const modalContent = document.querySelector(".popup-content");
@@ -5,21 +7,21 @@ const modal = () => {
   const width = document.documentElement.clientWidth;
 
   let count = 0;
-  let interval;
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       modal.style.display = "block";
-      const modalAnimation = () => {
-        count++;
-        interval = requestAnimationFrame(modalAnimation);
-        if (count < 26 && width > 768) {
-          modalContent.style.top = count * 6 + "px";
-        } else {
-          cancelAnimationFrame(interval);
-        }
-      };
-        modalAnimation();
+      if (width > 768) {
+      animate({
+        duration: 300,
+        timing(timeFraction) {
+          return Math.pow(timeFraction, 2);
+        },
+        draw(progress) {
+          modalContent.style.top = progress * 10 + '%';
+        },
+      });
+    }
     });
   });
 

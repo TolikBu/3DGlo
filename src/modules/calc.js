@@ -20,6 +20,8 @@ const calc = (price = 100) => {
     let totalValue = 0;
     let calcCountValue = 1;
     let calcDayValue = 1;
+    let time = 20;
+    let step = 60;
 
     if (calcCount.value > 1) {
       calcCountValue += +calcCount.value / 10;
@@ -30,19 +32,32 @@ const calc = (price = 100) => {
     } else if (calcDay.value && calcDay.value < 10) {
       calcDayValue = 1.5;
     }
-    
-    if (calcType.value && calcSquare.value) { 
+
+    if (calcType.value && calcSquare.value) {
       totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
     } else {
       totalValue = 0;
     }
+    
 
-    total.textContent = totalValue;
+    function outNum () {
+      let start = 0;
+      let t = Math.round(time / (totalValue / step));
+      let interval = setInterval(() => {
+        start = start + step;
+        if (start == totalValue) {
+          clearInterval(interval);
+        } else {
+          totalValue = start;
+        }
+      }, t);
+    }
+    total.textContent = outNum();
+  
   };
 
   calcBlock.addEventListener('input', (e) => {
-    if (e.target === calcType || e.target === calcSquare ||
-      e.target === calcCount || e.target === calcDay) {
+    if (e.target === calcType || e.target === calcSquare || e.target === calcCount || e.target === calcDay) {
       countCalc();
     }
   });
