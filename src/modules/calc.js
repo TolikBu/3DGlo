@@ -6,6 +6,7 @@ const calc = (price = 100) => {
   const calcCount = document.querySelector('.calc-count');
   const calcDay = document.querySelector('.calc-day');
   const total = document.getElementById('total');
+  console.log(calcType.value);
 
   for (let i of inputCalc) {
     i.addEventListener('input', (e) => {
@@ -20,8 +21,6 @@ const calc = (price = 100) => {
     let totalValue = 0;
     let calcCountValue = 1;
     let calcDayValue = 1;
-    let time = 20;
-    let step = 60;
 
     if (calcCount.value > 1) {
       calcCountValue += +calcCount.value / 10;
@@ -38,22 +37,23 @@ const calc = (price = 100) => {
     } else {
       totalValue = 0;
     }
-    
+    console.log(totalValue);
 
-    function outNum () {
+    function outNum() {
+      let time = 500;
+      let step = 10;
       let start = 0;
       let t = Math.round(time / (totalValue / step));
       let interval = setInterval(() => {
         start = start + step;
-        if (start == totalValue) {
+        if (start >= totalValue) {
           clearInterval(interval);
         } else {
-          totalValue = start;
+          total.textContent = start + step;
         }
       }, t);
     }
-    total.textContent = outNum();
-  
+    outNum();
   };
 
   calcBlock.addEventListener('input', (e) => {

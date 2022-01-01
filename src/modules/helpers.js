@@ -15,6 +15,6 @@ const  animate = ({ timing, draw, duration }) => {
       requestAnimationFrame(animate);
     }
   });
-}
+};
 
 export { animate };
