@@ -36,7 +36,6 @@ const calc = (price = 100) => {
     } else {
       totalValue = 0;
     }
-    console.log(totalValue);
 
     function outNum() {
       let time = 1;
