@@ -6,7 +6,6 @@ const calc = (price = 100) => {
   const calcCount = document.querySelector('.calc-count');
   const calcDay = document.querySelector('.calc-day');
   const total = document.getElementById('total');
-  console.log(calcType.value);
 
   for (let i of inputCalc) {
     i.addEventListener('input', (e) => {
@@ -40,8 +39,8 @@ const calc = (price = 100) => {
     console.log(totalValue);
 
     function outNum() {
-      let time = 500;
-      let step = 10;
+      let time = 1;
+      let step = 100;
       let start = 0;
       let t = Math.round(time / (totalValue / step));
       let interval = setInterval(() => {
