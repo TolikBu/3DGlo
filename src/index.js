@@ -5,6 +5,7 @@ import calc from "./modules/calc";
 import formValid from "./modules/formValid";
 import tabs from "./modules/tabs";
 import slider from "./modules/slider";
+import mask from "./modules/mask";
 
 
 timer('16 june 2022');
@@ -14,3 +15,4 @@ calc(100);
 formValid();
 tabs();
 slider();
+mask();
