@@ -3,11 +3,12 @@ const formValid = () => {
   const formName = document.querySelectorAll('.form-name');
   const formPhone = document.querySelectorAll('.form-phone');
   const formEmail = document.querySelectorAll('.form-email');
+  const formMess = document.querySelector('.mess');
 
   input.forEach((e) => {
     for (let i of formName) {
       i.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-Я]/gi, '');
+        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/gi, '');
       });
     }
     for (let i of formPhone) {
@@ -21,5 +22,10 @@ const formValid = () => {
       });
     }
   });
+  formMess.addEventListener('input', (e) => {
+    console.log('работает');
+    e.target.value = e.target.value.replace(/[^а-яА-Я\?\!\_\.\:\;\'\-\s\d]/gi, '');
+  });
 };
+
 export default formValid;
