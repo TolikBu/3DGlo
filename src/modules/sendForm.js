@@ -12,11 +12,11 @@ const sendForm = ({ formId, someElem = [] }) => {
   const validate = (list) => {
     let success = true;
 
-    list.forEach((input) => {
+    list.forEach((inputs) => {
       formElements = form.querySelectorAll("input");
       let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi;
 
-      if (input.classList.contains('success')) {
+      if (inputs.classList.contains("success")) {
         success = false;
       } 
 
