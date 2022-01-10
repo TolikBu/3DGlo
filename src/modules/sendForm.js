@@ -8,6 +8,21 @@ const sendForm = ({ formId, someElem = [] }) => {
   const validate = (list) => {
     let success = true;
 
+    list.forEach((input) => {
+      const formElement = form.querySelectorAll('input');
+      let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi;
+
+      if (input.classList.contains('success')) {
+        success = false;
+      } else if (formElement[0] < 3) {
+        success = false;
+      } else if (reg.test(formElement[1].value) == false) {
+        success = false;
+      } else if (formElement[2].value.length < 18) {
+        success = false;
+      }
+    });
+
     return success;
   };
 
@@ -26,7 +41,6 @@ const sendForm = ({ formId, someElem = [] }) => {
     const formData = new FormData(form);
     const formBody = {};
 
-    console.log(form);
 
     statusBlock.textContent = loadText;
     form.append(statusBlock);
@@ -49,17 +63,23 @@ const sendForm = ({ formId, someElem = [] }) => {
       sendData(formBody)
         .then((data) => {
           statusBlock.textContent = successText;
-
+         
+          
           formElements.forEach((input) => {
             input.value = '';
           });
         })
         .catch((error) => {
           statusBlock.textContent = errorText;
+          //  setInterval(() => {
+          //    form.delete(statusBlock);
+          //  }, 3000);
         });
     } else {
-      alert('Данные не валидны!!!');
+      alert('Данные не валидны: имя должно быть не короче 3 симвовлов, E-mail в формате xxxx@yyyy.zzz, номер телефона не короче 11 цифр');
+      statusBlock.textContent = errorText;
     }
+
   };
 
   try {

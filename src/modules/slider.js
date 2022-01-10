@@ -4,16 +4,6 @@ const slider = () => {
 
   const dotBlock = document.querySelector('.portfolio-dots');
   const timeInterval = 2000;
-  
-
-  const dotss = () => {
-    for (let i of slides) {
-      i = slides[0].cloneNode();
-      i.className = 'dot';
-      dotBlock.append(i);
-    }
-  };
-  let dots = dotss();
 
   let carrentSlide = 0;
   let interval;
@@ -25,10 +15,21 @@ const slider = () => {
   const nextSlides = (elems, index, strCarrent) => {
     elems[index].classList.add(strCarrent);
   };
+
+  const dotss = () => {
+    for (let i of slides) {
+      i = slides[0].cloneNode();
+      i.className = 'dot';
+      dotBlock.append(i);
+    }
+  };
+  
+  let dots = dotss();
+
+  dots = document.querySelectorAll('.dot');
+  dots[0].classList.add('dot-active');
+
   const autoSlide = () => {
-    dots = document.querySelectorAll('.dot');
-    // dots[0].className = 'dot dot-active';
-    
     prevSlides(slides, carrentSlide, 'portfolio-item-active');
     prevSlides(dots, carrentSlide, 'dot-active');
     carrentSlide++;

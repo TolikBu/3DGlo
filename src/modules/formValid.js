@@ -18,14 +18,17 @@ const formValid = () => {
     }
     for (let i of formEmail) {
       i.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\w\@\_\.\!\~\*\'\-]/gi, '');
+        e.target.value = e.target.value.replace(/[^a-zA-Z0-9\@\-\_\.\~\!\*\']/gi, '');
       });
     }
   });
   formMess.addEventListener('input', (e) => {
-    console.log('работает');
     e.target.value = e.target.value.replace(/[^а-яА-Я\?\!\_\.\:\;\'\-\s\d]/gi, '');
   });
+
+  input.forEach((e) => {
+    
+  })
 };
 
 export default formValid;
