@@ -5,7 +5,7 @@ const modal = () => {
   const modalContent = document.querySelector(".popup-content");
   const buttons = document.querySelectorAll(".popup-btn");
   const width = document.documentElement.clientWidth;
-
+  
   let count = 0;
 
   buttons.forEach((btn) => {
@@ -19,7 +19,7 @@ const modal = () => {
         },
         draw(progress) {
           modalContent.style.top = progress * 10 + '%';
-        },
+        }
       });
     }
     });

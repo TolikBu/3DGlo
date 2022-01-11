@@ -11,11 +11,11 @@ const formValid = () => {
         e.target.value = e.target.value.replace(/[^а-яА-Я\s]/gi, "");
       });
     }
-    for (let i of formPhone) {
-      i.addEventListener("input", (e) => {
-        e.target.value = e.target.value.replace(/[^\d()-]/gi, "");
-      });
-    }
+    // for (let i of formPhone) {
+    //   i.addEventListener("input", (e) => {
+    //     e.target.value = e.target.value.replace(/[^\d()-]/gi, "");
+    //   });
+    // }
     for (let i of formEmail) {
       i.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/[^a-zA-Z0-9\@\-\_\.\~\!\*\']/gi, "");

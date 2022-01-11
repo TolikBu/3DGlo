@@ -14,7 +14,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 
     list.forEach((inputs) => {
       formElements = form.querySelectorAll("input");
-      let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/gi;
+      let reg = /^([A-Za-z0-9_\-\.\_\~\!\*\'])+\@([A-Za-z0-9_\-\_\.\~\!\*\'])+\.([A-Za-z]{2,4})$/gi;
 
       if (inputs.classList.contains("success")) {
         success = false;
@@ -82,12 +82,15 @@ const sendForm = ({ formId, someElem = [] }) => {
           statusBlock.textContent = errorText;
           setInterval(() => {
             statusBlock.remove(form);
-          }, 2000);
+          }, 1000);
+          
         });
     } else {
       alert("Данные не валидны: имя должно быть не короче 3 симвовлов, E-mail в формате xxxx@yyyy.zzz, номер телефона не короче 11 цифр");
       statusBlock.textContent = errorText;
+      return;
     }
+    
   };
 
   try {
